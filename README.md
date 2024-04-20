@@ -1,2 +1,7 @@
-# companiON
-CompaniON is a cross-platform application that seeks to connect University students to events nearby to find colleagues with like interests. 
+# CompaniON
+
+A new Flutter project.
+
+## Getting Started
+
+FlutterFlow projects are built to run on the Flutter _stable_ release.

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "605962454037",
+    "project_id": "companion-cf150",
+    "storage_bucket": "companion-cf150.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605962454037:android:800e1948de6a888c5f3a1c",
+        "android_client_info": {
+          "package_name": "com.mycompany.companion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrRcxxulLO-qCM54MzaLiOn1Nw4rKZIc8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
