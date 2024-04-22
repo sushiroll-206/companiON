@@ -12,15 +12,25 @@
           "package_name": "com.mycompany.companion"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "605962454037-h67ronm33m933m6etoa29q8d574vvtna.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyCrRcxxulLO-qCM54MzaLiOn1Nw4rKZIc8"
+          "current_key": "AIzaSyC1cwwNzZqcULEWH5Qrry_DO0M9e5S41Xc"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "605962454037-h67ronm33m933m6etoa29q8d574vvtna.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

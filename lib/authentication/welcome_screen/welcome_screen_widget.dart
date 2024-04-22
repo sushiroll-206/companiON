@@ -346,7 +346,7 @@ class _WelcomeScreenWidgetState extends State<WelcomeScreenWidget>
                           () => ClipRRect(
                                 borderRadius: BorderRadius.circular(16.0),
                                 child: Image.network(
-                                  'https://images.unsplash.com/photo-1540390769625-2fc3f8b1d50c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fG1vdW50YWluc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60',
+                                  'https://hub.washington.edu/wordpress/wp-content/uploads/2024/03/SpringShow_336x280.png',
                                   width: 120.0,
                                   height: 160.0,
                                   fit: BoxFit.cover,
@@ -355,7 +355,7 @@ class _WelcomeScreenWidgetState extends State<WelcomeScreenWidget>
                           () => ClipRRect(
                                 borderRadius: BorderRadius.circular(16.0),
                                 child: Image.network(
-                                  'https://images.unsplash.com/photo-1443632864897-14973fa006cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fG1vdW50YWluc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60',
+                                  'https://hub.washington.edu/wordpress/wp-content/uploads/2023/03/02_22_23_WinterMakersFair-07-1800x1013.jpg',
                                   width: 120.0,
                                   height: 180.0,
                                   fit: BoxFit.cover,

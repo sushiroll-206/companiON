@@ -52,9 +52,9 @@ class _CalendarWidgetState extends State<CalendarWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
-              color: Colors.white,
+              color: FlutterFlowTheme.of(context).primaryText,
               size: 30.0,
             ),
             onPressed: () async {
@@ -65,7 +65,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
             'Calendar',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Lato',
-                  color: Colors.white,
+                  color: FlutterFlowTheme.of(context).primaryText,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
                 ),
@@ -118,12 +118,14 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                   selectedDateStyle:
                       FlutterFlowTheme.of(context).titleSmall.override(
                             fontFamily: 'Lato',
+                            color: FlutterFlowTheme.of(context).primaryText,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
                           ),
                   inactiveDateStyle:
                       FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: 'Lato',
+                            color: const Color(0xFF1C849D),
                             letterSpacing: 0.0,
                           ),
                 ),
@@ -182,7 +184,8 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                                   .titleLarge
                                   .override(
                                     fontFamily: 'Lato',
-                                    color: Colors.black,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                     letterSpacing: 0.0,
                                   ),
                             ),
@@ -193,7 +196,8 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                                   .labelMedium
                                   .override(
                                     fontFamily: 'Lato',
-                                    color: Colors.black,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
                                     letterSpacing: 0.0,
                                   ),
                             ),

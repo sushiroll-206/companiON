@@ -597,7 +597,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                       BorderRadius.circular(
                                                           15.0),
                                                   border: Border.all(
-                                                    color: Colors.black,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
                                                   ),
                                                 ),
                                                 child: Column(

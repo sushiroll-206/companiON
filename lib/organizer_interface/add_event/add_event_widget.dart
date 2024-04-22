@@ -59,7 +59,7 @@ class _AddEventWidgetState extends State<AddEventWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: const Color(0xFFFAF9F6),
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
@@ -68,9 +68,9 @@ class _AddEventWidgetState extends State<AddEventWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
-              color: Colors.white,
+              color: FlutterFlowTheme.of(context).primaryText,
               size: 30.0,
             ),
             onPressed: () async {
@@ -81,7 +81,7 @@ class _AddEventWidgetState extends State<AddEventWidget> {
             'Add Event',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Lato',
-                  color: Colors.white,
+                  color: FlutterFlowTheme.of(context).primaryText,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
                 ),
@@ -184,7 +184,8 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Lato',
-                                    color: Colors.black,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                     letterSpacing: 0.0,
                                   ),
                               validator: _model
@@ -227,7 +228,7 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                               defaultText: 'Select Location',
                               icon: Icon(
                                 Icons.place,
-                                color: FlutterFlowTheme.of(context).info,
+                                color: FlutterFlowTheme.of(context).primaryText,
                                 size: 16.0,
                               ),
                               buttonOptions: FFButtonOptions(
@@ -238,7 +239,8 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Lato',
-                                      color: FlutterFlowTheme.of(context).info,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 2.0,
@@ -358,7 +360,8 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Lato',
-                                          color: Colors.white,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
                                           letterSpacing: 0.0,
                                         ),
                                     elevation: 3.0,
@@ -444,7 +447,8 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Lato',
-                                          color: Colors.white,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
                                           letterSpacing: 0.0,
                                         ),
                                     elevation: 3.0,
@@ -586,7 +590,8 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Lato',
-                                          color: Colors.white,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
                                           letterSpacing: 0.0,
                                         ),
                                     elevation: 3.0,
@@ -672,7 +677,8 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Lato',
-                                          color: Colors.white,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
                                           letterSpacing: 0.0,
                                         ),
                                     elevation: 3.0,
@@ -1021,7 +1027,8 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Lato',
-                                      color: Colors.white,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
@@ -1275,7 +1282,8 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Lato',
-                                          color: Colors.white,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
                                           letterSpacing: 0.0,
                                         ),
                                     elevation: 3.0,

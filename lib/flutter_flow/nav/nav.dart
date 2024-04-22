@@ -212,9 +212,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'editEvent',
               path: 'editEvent',
               requireAuth: true,
-              builder: (context, params) => const NavBarPage(
+              builder: (context, params) => NavBarPage(
                 initialPage: '',
-                page: EditEventWidget(),
+                page: EditEventWidget(
+                  eventRef: params.getParam(
+                    'eventRef',
+                    ParamType.DocumentReference,
+                    false,
+                    ['Events'],
+                  ),
+                ),
               ),
             ),
             FFRoute(
