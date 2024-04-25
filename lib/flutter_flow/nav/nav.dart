@@ -83,12 +83,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? const NavBarPage() : const WelcomeScreenWidget(),
           routes: [
             FFRoute(
-              name: 'Onboarding',
-              path: 'onboarding',
-              requireAuth: true,
-              builder: (context, params) => const OnboardingWidget(),
-            ),
-            FFRoute(
               name: 'WelcomeScreen',
               path: 'welcomeScreen',
               builder: (context, params) => const WelcomeScreenWidget(),
