@@ -1,5 +1,4 @@
 // Export pages
-export '/onboarding/onboarding_widget.dart' show OnboardingWidget;
 export '/authentication/welcome_screen/welcome_screen_widget.dart'
     show WelcomeScreenWidget;
 export '/authentication/create_user/create_user_widget.dart'

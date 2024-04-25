@@ -106,7 +106,8 @@ class _EventScreenWidgetState extends State<EventScreenWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Lato',
-                                            color: const Color(0xFFBC9FD8),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
                                             fontSize: 30.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
@@ -317,9 +318,9 @@ class _EventScreenWidgetState extends State<EventScreenWidget> {
                               onTap: () async {
                                 context.pushNamed('Home');
                               },
-                              child: const Icon(
+                              child: Icon(
                                 Icons.arrow_back_rounded,
-                                color: Color(0xFFBC9FD8),
+                                color: FlutterFlowTheme.of(context).primaryText,
                                 size: 30.0,
                               ),
                             ),

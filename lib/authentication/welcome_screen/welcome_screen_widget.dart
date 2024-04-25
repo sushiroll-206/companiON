@@ -607,7 +607,7 @@ class _WelcomeScreenWidgetState extends State<WelcomeScreenWidget>
                                   .override(
                                     fontFamily: 'Lato',
                                     color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
+                                        .primaryText,
                                     letterSpacing: 0.0,
                                   ),
                               elevation: 4.0,

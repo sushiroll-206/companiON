@@ -7,6 +7,7 @@ import 'auth/firebase_auth/firebase_user_provider.dart';
 import 'auth/firebase_auth/auth_util.dart';
 
 import 'backend/firebase/firebase_config.dart';
+import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -153,8 +154,8 @@ class _NavBarPageState extends State<NavBarPage> {
             _currentPageName = tabs.keys.toList()[i];
           }),
           backgroundColor: Colors.white,
-          selectedItemColor: const Color(0xFFBC9FD8),
-          unselectedItemColor: const Color(0x8A000000),
+          selectedItemColor: FlutterFlowTheme.of(context).primaryText,
+          unselectedItemColor: const Color(0xFF555555),
           selectedBackgroundColor: const Color(0x00000000),
           borderRadius: 8.0,
           itemBorderRadius: 8.0,
@@ -170,8 +171,8 @@ class _NavBarPageState extends State<NavBarPage> {
                   Icon(
                     Icons.location_on_sharp,
                     color: currentIndex == 0
-                        ? const Color(0xFFBC9FD8)
-                        : const Color(0x8A000000),
+                        ? FlutterFlowTheme.of(context).primaryText
+                        : const Color(0xFF555555),
                     size: 24.0,
                   ),
                   Text(
@@ -179,8 +180,8 @@ class _NavBarPageState extends State<NavBarPage> {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       color: currentIndex == 0
-                          ? const Color(0xFFBC9FD8)
-                          : const Color(0x8A000000),
+                          ? FlutterFlowTheme.of(context).primaryText
+                          : const Color(0xFF555555),
                       fontSize: 11.0,
                     ),
                   ),
@@ -194,8 +195,8 @@ class _NavBarPageState extends State<NavBarPage> {
                   Icon(
                     Icons.calendar_month,
                     color: currentIndex == 1
-                        ? const Color(0xFFBC9FD8)
-                        : const Color(0x8A000000),
+                        ? FlutterFlowTheme.of(context).primaryText
+                        : const Color(0xFF555555),
                     size: 24.0,
                   ),
                   Text(
@@ -203,8 +204,8 @@ class _NavBarPageState extends State<NavBarPage> {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       color: currentIndex == 1
-                          ? const Color(0xFFBC9FD8)
-                          : const Color(0x8A000000),
+                          ? FlutterFlowTheme.of(context).primaryText
+                          : const Color(0xFF555555),
                       fontSize: 11.0,
                     ),
                   ),
@@ -218,8 +219,8 @@ class _NavBarPageState extends State<NavBarPage> {
                   Icon(
                     Icons.person,
                     color: currentIndex == 2
-                        ? const Color(0xFFBC9FD8)
-                        : const Color(0x8A000000),
+                        ? FlutterFlowTheme.of(context).primaryText
+                        : const Color(0xFF555555),
                     size: 24.0,
                   ),
                   Text(
@@ -227,8 +228,8 @@ class _NavBarPageState extends State<NavBarPage> {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       color: currentIndex == 2
-                          ? const Color(0xFFBC9FD8)
-                          : const Color(0x8A000000),
+                          ? FlutterFlowTheme.of(context).primaryText
+                          : const Color(0xFF555555),
                       fontSize: 11.0,
                     ),
                   ),
@@ -242,8 +243,8 @@ class _NavBarPageState extends State<NavBarPage> {
                   Icon(
                     Icons.settings_sharp,
                     color: currentIndex == 3
-                        ? const Color(0xFFBC9FD8)
-                        : const Color(0x8A000000),
+                        ? FlutterFlowTheme.of(context).primaryText
+                        : const Color(0xFF555555),
                     size: 24.0,
                   ),
                   Text(
@@ -251,8 +252,8 @@ class _NavBarPageState extends State<NavBarPage> {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       color: currentIndex == 3
-                          ? const Color(0xFFBC9FD8)
-                          : const Color(0x8A000000),
+                          ? FlutterFlowTheme.of(context).primaryText
+                          : const Color(0xFF555555),
                       fontSize: 11.0,
                     ),
                   ),
@@ -266,8 +267,8 @@ class _NavBarPageState extends State<NavBarPage> {
                   Icon(
                     Icons.texture_outlined,
                     color: currentIndex == 4
-                        ? const Color(0xFFBC9FD8)
-                        : const Color(0x8A000000),
+                        ? FlutterFlowTheme.of(context).primaryText
+                        : const Color(0xFF555555),
                     size: 24.0,
                   ),
                   Text(
@@ -275,8 +276,8 @@ class _NavBarPageState extends State<NavBarPage> {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       color: currentIndex == 4
-                          ? const Color(0xFFBC9FD8)
-                          : const Color(0x8A000000),
+                          ? FlutterFlowTheme.of(context).primaryText
+                          : const Color(0xFF555555),
                       fontSize: 11.0,
                     ),
                   ),
