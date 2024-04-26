@@ -13,6 +13,8 @@ import 'package:flutter/foundation.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'index.dart';
+import 'package:flutter/services.dart';
+import 'dart:io';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,6 +28,14 @@ void main() async {
   if (!kIsWeb) {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   }
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  ByteData r3 = await PlatformAssetBundle().load('assets/ca/lets-encrypt-r3.pem');
+  SecurityContext.defaultContext.setTrustedCertificatesBytes(r3.buffer.asUint8List());
+
+  ByteData e1 = await PlatformAssetBundle().load('assets/ca/lets-encrypt-e1.pem');
+  SecurityContext.defaultContext.setTrustedCertificatesBytes(e1.buffer.asUint8List());
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
