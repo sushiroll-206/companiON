@@ -281,7 +281,7 @@ class _SelectInterestsWidgetState extends State<SelectInterestsWidget> {
                                                         .check_box_outline_blank,
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondaryText,
+                                                        .info,
                                                     size: 25.0,
                                                   ),
                                                 );
@@ -298,8 +298,9 @@ class _SelectInterestsWidgetState extends State<SelectInterestsWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Lato',
-                                                          color:
-                                                              const Color(0xFFBC9FD8),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,

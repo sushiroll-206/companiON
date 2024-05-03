@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'no_companions_widget.dart' show NoCompanionsWidget;
+import 'delete_account_popup_widget.dart' show DeleteAccountPopupWidget;
 import 'package:flutter/material.dart';
 
-class NoCompanionsModel extends FlutterFlowModel<NoCompanionsWidget> {
+class DeleteAccountPopupModel
+    extends FlutterFlowModel<DeleteAccountPopupWidget> {
   @override
   void initState(BuildContext context) {}
 

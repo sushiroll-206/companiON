@@ -119,7 +119,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 32.0, 0.0, 8.0),
                               child: Text(
-                                'Welcome to CompaniON!',
+                                'Welcome to Eventful!',
                                 textAlign: TextAlign.start,
                                 style: FlutterFlowTheme.of(context)
                                     .displayMedium
@@ -139,6 +139,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                                     .labelLarge
                                     .override(
                                       fontFamily: 'Lato',
+                                      color: FlutterFlowTheme.of(context).info,
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -158,6 +159,8 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                                       .labelLarge
                                       .override(
                                         fontFamily: 'Lato',
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
                                       ),
                                   errorStyle: FlutterFlowTheme.of(context)
@@ -246,6 +249,8 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                                       .labelLarge
                                       .override(
                                         fontFamily: 'Lato',
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
                                       ),
                                   errorStyle: FlutterFlowTheme.of(context)
@@ -335,6 +340,8 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                                       .labelLarge
                                       .override(
                                         fontFamily: 'Lato',
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
                                       ),
                                   errorStyle: FlutterFlowTheme.of(context)
@@ -440,6 +447,8 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                                       .labelLarge
                                       .override(
                                         fontFamily: 'Lato',
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
                                       ),
                                   errorStyle: FlutterFlowTheme.of(context)
@@ -582,13 +591,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                           iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleMedium.override(
-                                    fontFamily: 'Lato',
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    letterSpacing: 0.0,
-                                  ),
+                          textStyle: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .override(
+                                fontFamily: 'Lato',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                letterSpacing: 0.0,
+                              ),
                           elevation: 4.0,
                           borderSide: const BorderSide(
                             color: Colors.transparent,

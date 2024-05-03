@@ -4,23 +4,24 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'create_leave_popup_model.dart';
-export 'create_leave_popup_model.dart';
+import 'remove_friend_popup_model.dart';
+export 'remove_friend_popup_model.dart';
 
-class CreateLeavePopupWidget extends StatefulWidget {
-  const CreateLeavePopupWidget({
+class RemoveFriendPopupWidget extends StatefulWidget {
+  const RemoveFriendPopupWidget({
     super.key,
-    required this.eventRef,
+    required this.userRef,
   });
 
-  final DocumentReference? eventRef;
+  final DocumentReference? userRef;
 
   @override
-  State<CreateLeavePopupWidget> createState() => _CreateLeavePopupWidgetState();
+  State<RemoveFriendPopupWidget> createState() =>
+      _RemoveFriendPopupWidgetState();
 }
 
-class _CreateLeavePopupWidgetState extends State<CreateLeavePopupWidget> {
-  late CreateLeavePopupModel _model;
+class _RemoveFriendPopupWidgetState extends State<RemoveFriendPopupWidget> {
+  late RemoveFriendPopupModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -31,7 +32,7 @@ class _CreateLeavePopupWidgetState extends State<CreateLeavePopupWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateLeavePopupModel());
+    _model = createModel(context, () => RemoveFriendPopupModel());
   }
 
   @override
@@ -60,7 +61,7 @@ class _CreateLeavePopupWidgetState extends State<CreateLeavePopupWidget> {
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 24.0, 8.0, 0.0),
                 child: Text(
-                  'Are you sure you want to leave this event?',
+                  'Are you sure you would like to unadd this user?',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Lato',
@@ -81,33 +82,29 @@ class _CreateLeavePopupWidgetState extends State<CreateLeavePopupWidget> {
                       const EdgeInsetsDirectional.fromSTEB(32.0, 24.0, 44.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      await widget.eventRef!.update({
-                        ...mapToFirestore(
-                          {
-                            'attendees':
-                                FieldValue.arrayRemove([currentUserReference]),
-                          },
-                        ),
-                      });
-
-                      await currentUserReference!.update({
-                        ...mapToFirestore(
-                          {
-                            'joined_events':
-                                FieldValue.arrayRemove([widget.eventRef]),
-                          },
-                        ),
-                      });
-
-                      context.pushNamed(
-                        'EventScreen',
-                        queryParameters: {
-                          'eventRef': serializeParam(
-                            widget.eventRef,
-                            ParamType.DocumentReference,
-                          ),
-                        }.withoutNulls,
-                      );
+                      await Future.wait([
+                        Future(() async {
+                          await widget.userRef!.update({
+                            ...mapToFirestore(
+                              {
+                                'companions': FieldValue.arrayRemove(
+                                    [currentUserReference]),
+                              },
+                            ),
+                          });
+                        }),
+                        Future(() async {
+                          await currentUserReference!.update({
+                            ...mapToFirestore(
+                              {
+                                'companions':
+                                    FieldValue.arrayRemove([widget.userRef]),
+                              },
+                            ),
+                          });
+                        }),
+                      ]);
+                      Navigator.pop(context);
                     },
                     text: 'Yes',
                     options: FFButtonOptions(

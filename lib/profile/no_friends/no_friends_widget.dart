@@ -1,18 +1,18 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'no_requests_model.dart';
-export 'no_requests_model.dart';
+import 'no_friends_model.dart';
+export 'no_friends_model.dart';
 
-class NoRequestsWidget extends StatefulWidget {
-  const NoRequestsWidget({super.key});
+class NoFriendsWidget extends StatefulWidget {
+  const NoFriendsWidget({super.key});
 
   @override
-  State<NoRequestsWidget> createState() => _NoRequestsWidgetState();
+  State<NoFriendsWidget> createState() => _NoFriendsWidgetState();
 }
 
-class _NoRequestsWidgetState extends State<NoRequestsWidget> {
-  late NoRequestsModel _model;
+class _NoFriendsWidgetState extends State<NoFriendsWidget> {
+  late NoFriendsModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -23,7 +23,7 @@ class _NoRequestsWidgetState extends State<NoRequestsWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => NoRequestsModel());
+    _model = createModel(context, () => NoFriendsModel());
   }
 
   @override
@@ -39,7 +39,7 @@ class _NoRequestsWidgetState extends State<NoRequestsWidget> {
       mainAxisSize: MainAxisSize.max,
       children: [
         Text(
-          'You don\'t have any Friend requests',
+          'You haven\'t added any Friends',
           textAlign: TextAlign.center,
           style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Outfit',

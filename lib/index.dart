@@ -14,7 +14,7 @@ export '/event_view/joined_event/joined_event_widget.dart'
 export '/profile/profile/profile_widget.dart' show ProfileWidget;
 export '/profile/other_profile/other_profile_widget.dart'
     show OtherProfileWidget;
-export '/pages/home/home_widget.dart' show HomeWidget;
+export '/pages/events_list/events_list_widget.dart' show EventsListWidget;
 export '/chronological_view/calendar/calendar_widget.dart' show CalendarWidget;
 export '/profile/select_interests/select_interests_widget.dart'
     show SelectInterestsWidget;
@@ -23,5 +23,7 @@ export '/organizer_interface/add_event/add_event_widget.dart'
 export '/organizer_interface/edit_event/edit_event_widget.dart'
     show EditEventWidget;
 export '/settings/settings/settings_widget.dart' show SettingsWidget;
-export '/profile/companions/companions_widget.dart' show CompanionsWidget;
+export '/profile/friends/friends_widget.dart' show FriendsWidget;
 export '/pages/testing/testing_widget.dart' show TestingWidget;
+export '/settings/delete_account/delete_account_widget.dart'
+    show DeleteAccountWidget;

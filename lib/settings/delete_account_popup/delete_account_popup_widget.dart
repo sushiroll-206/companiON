@@ -1,26 +1,21 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'create_leave_popup_model.dart';
-export 'create_leave_popup_model.dart';
+import 'delete_account_popup_model.dart';
+export 'delete_account_popup_model.dart';
 
-class CreateLeavePopupWidget extends StatefulWidget {
-  const CreateLeavePopupWidget({
-    super.key,
-    required this.eventRef,
-  });
-
-  final DocumentReference? eventRef;
+class DeleteAccountPopupWidget extends StatefulWidget {
+  const DeleteAccountPopupWidget({super.key});
 
   @override
-  State<CreateLeavePopupWidget> createState() => _CreateLeavePopupWidgetState();
+  State<DeleteAccountPopupWidget> createState() =>
+      _DeleteAccountPopupWidgetState();
 }
 
-class _CreateLeavePopupWidgetState extends State<CreateLeavePopupWidget> {
-  late CreateLeavePopupModel _model;
+class _DeleteAccountPopupWidgetState extends State<DeleteAccountPopupWidget> {
+  late DeleteAccountPopupModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -31,7 +26,7 @@ class _CreateLeavePopupWidgetState extends State<CreateLeavePopupWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateLeavePopupModel());
+    _model = createModel(context, () => DeleteAccountPopupModel());
   }
 
   @override
@@ -60,7 +55,7 @@ class _CreateLeavePopupWidgetState extends State<CreateLeavePopupWidget> {
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 24.0, 8.0, 0.0),
                 child: Text(
-                  'Are you sure you want to leave this event?',
+                  'Are you sure you would like to delete your account?',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Lato',
@@ -74,40 +69,23 @@ class _CreateLeavePopupWidgetState extends State<CreateLeavePopupWidget> {
             ),
             Row(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(32.0, 24.0, 44.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 0.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      await widget.eventRef!.update({
-                        ...mapToFirestore(
-                          {
-                            'attendees':
-                                FieldValue.arrayRemove([currentUserReference]),
-                          },
-                        ),
-                      });
-
-                      await currentUserReference!.update({
-                        ...mapToFirestore(
-                          {
-                            'joined_events':
-                                FieldValue.arrayRemove([widget.eventRef]),
-                          },
-                        ),
-                      });
-
-                      context.pushNamed(
-                        'EventScreen',
-                        queryParameters: {
-                          'eventRef': serializeParam(
-                            widget.eventRef,
-                            ParamType.DocumentReference,
-                          ),
-                        }.withoutNulls,
-                      );
+                      await Future.wait([
+                        Future(() async {
+                          await authManager.deleteUser(context);
+                        }),
+                        Future(() async {
+                          context.pushNamed('WelcomeScreen');
+                        }),
+                        Future(() async {
+                          await currentUserReference!.delete();
+                        }),
+                      ]);
                     },
                     text: 'Yes',
                     options: FFButtonOptions(
@@ -134,8 +112,7 @@ class _CreateLeavePopupWidgetState extends State<CreateLeavePopupWidget> {
                   ),
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(44.0, 24.0, 32.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 32.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       Navigator.pop(context);

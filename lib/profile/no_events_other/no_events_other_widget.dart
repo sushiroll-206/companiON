@@ -38,9 +38,9 @@ class _NoEventsOtherWidgetState extends State<NoEventsOtherWidget> {
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        const Icon(
+        Icon(
           Icons.calendar_today_rounded,
-          color: Color(0xFF606A85),
+          color: FlutterFlowTheme.of(context).primary,
           size: 72.0,
         ),
         Text(
@@ -48,7 +48,7 @@ class _NoEventsOtherWidgetState extends State<NoEventsOtherWidget> {
           textAlign: TextAlign.center,
           style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Outfit',
-                color: const Color(0xFFBC9FD8),
+                color: FlutterFlowTheme.of(context).primaryText,
                 fontSize: 24.0,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.w500,

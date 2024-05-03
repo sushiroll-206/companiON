@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'home_widget.dart' show HomeWidget;
+import 'events_list_widget.dart' show EventsListWidget;
 import 'package:flutter/material.dart';
 
-class HomeModel extends FlutterFlowModel<HomeWidget> {
+class EventsListModel extends FlutterFlowModel<EventsListWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

@@ -6,6 +6,7 @@ import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
 class UsersRecord extends FirestoreRecord {
   UsersRecord._(
@@ -86,6 +87,11 @@ class UsersRecord extends FirestoreRecord {
       _companionRequests ?? const [];
   bool hasCompanionRequests() => _companionRequests != null;
 
+  // "num_requests" field.
+  int? _numRequests;
+  int get numRequests => _numRequests ?? 0;
+  bool hasNumRequests() => _numRequests != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -101,6 +107,7 @@ class UsersRecord extends FirestoreRecord {
     _joinedEvents = getDataList(snapshotData['joined_events']);
     _companions = getDataList(snapshotData['companions']);
     _companionRequests = getDataList(snapshotData['companion_requests']);
+    _numRequests = castToType<int>(snapshotData['num_requests']);
   }
 
   static CollectionReference get collection =>
@@ -147,6 +154,7 @@ Map<String, dynamic> createUsersRecordData({
   DateTime? lastActiveTime,
   String? role,
   String? title,
+  int? numRequests,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -160,6 +168,7 @@ Map<String, dynamic> createUsersRecordData({
       'last_active_time': lastActiveTime,
       'role': role,
       'title': title,
+      'num_requests': numRequests,
     }.withoutNulls,
   );
 
@@ -185,7 +194,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         listEquality.equals(e1?.interests, e2?.interests) &&
         listEquality.equals(e1?.joinedEvents, e2?.joinedEvents) &&
         listEquality.equals(e1?.companions, e2?.companions) &&
-        listEquality.equals(e1?.companionRequests, e2?.companionRequests);
+        listEquality.equals(e1?.companionRequests, e2?.companionRequests) &&
+        e1?.numRequests == e2?.numRequests;
   }
 
   @override
@@ -203,7 +213,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.interests,
         e?.joinedEvents,
         e?.companions,
-        e?.companionRequests
+        e?.companionRequests,
+        e?.numRequests
       ]);
 
   @override

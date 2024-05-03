@@ -30,7 +30,7 @@ class EditEventModel extends FlutterFlowModel<EditEventWidget> {
   DateTime? datePicked3;
   DateTime? datePicked4;
   // State field(s) for Switch-Limit widget.
-  bool? switchLimitValue;
+  bool switchLimitValue = false;
   // State field(s) for TextField-maxNum widget.
   FocusNode? textFieldMaxNumFocusNode;
   TextEditingController? textFieldMaxNumTextController;

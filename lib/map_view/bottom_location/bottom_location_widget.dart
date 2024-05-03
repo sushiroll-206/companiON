@@ -48,9 +48,10 @@ class _BottomLocationWidgetState extends State<BottomLocationWidget> {
         Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
           child: Container(
-            width: double.infinity,
+            width: MediaQuery.sizeOf(context).width * 1.0,
+            height: MediaQuery.sizeOf(context).height * 0.5,
             decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondary,
+              color: FlutterFlowTheme.of(context).secondaryBackground,
               boxShadow: const [
                 BoxShadow(
                   blurRadius: 4.0,
@@ -84,7 +85,7 @@ class _BottomLocationWidgetState extends State<BottomLocationWidget> {
                           child: Image.network(
                             widget.locationRef!.eventImage,
                             width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: 200.0,
+                            height: MediaQuery.sizeOf(context).height * 0.2,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -117,11 +118,13 @@ class _BottomLocationWidgetState extends State<BottomLocationWidget> {
                         subtitle: Text(
                           dateTimeFormat(
                               'MMMEd', widget.locationRef!.dateStart!),
-                          style:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Lato',
-                                    letterSpacing: 0.0,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .override(
+                                fontFamily: 'Lato',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                letterSpacing: 0.0,
+                              ),
                         ),
                         trailing: Icon(
                           Icons.arrow_forward_ios,
@@ -129,7 +132,7 @@ class _BottomLocationWidgetState extends State<BottomLocationWidget> {
                           size: 20.0,
                         ),
                         tileColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
+                            FlutterFlowTheme.of(context).primaryBackground,
                         dense: false,
                       ),
                     ),
@@ -229,8 +232,7 @@ class _BottomLocationWidgetState extends State<BottomLocationWidget> {
                           children: [
                             Card(
                               clipBehavior: Clip.antiAliasWithSaveLayer,
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
+                              color: FlutterFlowTheme.of(context).primary,
                               elevation: 0.0,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(40.0),
@@ -302,6 +304,9 @@ class _BottomLocationWidgetState extends State<BottomLocationWidget> {
                                             .labelLarge
                                             .override(
                                               fontFamily: 'Lato',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .info,
                                               letterSpacing: 0.0,
                                             ),
                                       ),

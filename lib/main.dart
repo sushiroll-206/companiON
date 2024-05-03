@@ -129,7 +129,6 @@ class _NavBarPageState extends State<NavBarPage> {
       'Calendar': const CalendarWidget(),
       'Profile': const ProfileWidget(),
       'settings': const SettingsWidget(),
-      'testing': const TestingWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -252,30 +251,6 @@ class _NavBarPageState extends State<NavBarPage> {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       color: currentIndex == 3
-                          ? FlutterFlowTheme.of(context).primaryText
-                          : const Color(0xFF555555),
-                      fontSize: 11.0,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            FloatingNavbarItem(
-              customWidget: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.texture_outlined,
-                    color: currentIndex == 4
-                        ? FlutterFlowTheme.of(context).primaryText
-                        : const Color(0xFF555555),
-                    size: 24.0,
-                  ),
-                  Text(
-                    'testing',
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      color: currentIndex == 4
                           ? FlutterFlowTheme.of(context).primaryText
                           : const Color(0xFF555555),
                       fontSize: 11.0,

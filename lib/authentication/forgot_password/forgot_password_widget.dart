@@ -130,6 +130,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                     .labelLarge
                                     .override(
                                       fontFamily: 'Lato',
+                                      color: FlutterFlowTheme.of(context).info,
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -148,6 +149,8 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                       .labelLarge
                                       .override(
                                         fontFamily: 'Lato',
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
                                       ),
                                   errorStyle: FlutterFlowTheme.of(context)
@@ -258,14 +261,15 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                               0.0, 0.0, 0.0, 0.0),
                           iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleMedium.override(
-                                    fontFamily: 'Lato',
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    letterSpacing: 0.0,
-                                  ),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .override(
+                                fontFamily: 'Lato',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                letterSpacing: 0.0,
+                              ),
                           elevation: 4.0,
                           borderSide: const BorderSide(
                             color: Colors.transparent,
