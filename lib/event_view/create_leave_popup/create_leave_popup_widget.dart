@@ -44,8 +44,8 @@ class _CreateLeavePopupWidgetState extends State<CreateLeavePopupWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 304.0,
-      height: 237.0,
+      width: MediaQuery.sizeOf(context).width * 1.0,
+      height: MediaQuery.sizeOf(context).height * 0.6,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(50.0),
@@ -81,14 +81,6 @@ class _CreateLeavePopupWidgetState extends State<CreateLeavePopupWidget> {
                       const EdgeInsetsDirectional.fromSTEB(32.0, 24.0, 44.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      await widget.eventRef!.update({
-                        ...mapToFirestore(
-                          {
-                            'companions_joined': FieldValue.increment(-(1)),
-                          },
-                        ),
-                      });
-
                       await widget.eventRef!.update({
                         ...mapToFirestore(
                           {
@@ -155,7 +147,7 @@ class _CreateLeavePopupWidgetState extends State<CreateLeavePopupWidget> {
                           const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: const Color(0xFF9A9B9B),
+                      color: FlutterFlowTheme.of(context).info,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Lato',

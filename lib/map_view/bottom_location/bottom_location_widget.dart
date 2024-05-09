@@ -1,7 +1,9 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 import 'bottom_location_model.dart';
 export 'bottom_location_model.dart';
 
@@ -48,9 +50,9 @@ class _BottomLocationWidgetState extends State<BottomLocationWidget> {
         Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
           child: Container(
-            width: double.infinity,
+            width: MediaQuery.sizeOf(context).width * 1.0,
             decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondary,
+              color: FlutterFlowTheme.of(context).secondaryBackground,
               boxShadow: const [
                 BoxShadow(
                   blurRadius: 4.0,
@@ -84,7 +86,7 @@ class _BottomLocationWidgetState extends State<BottomLocationWidget> {
                           child: Image.network(
                             widget.locationRef!.eventImage,
                             width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: 200.0,
+                            height: MediaQuery.sizeOf(context).height * 0.2,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -95,15 +97,28 @@ class _BottomLocationWidgetState extends State<BottomLocationWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed(
-                          'EventScreen',
-                          queryParameters: {
-                            'eventRef': serializeParam(
-                              widget.locationRef?.reference,
-                              ParamType.DocumentReference,
-                            ),
-                          }.withoutNulls,
-                        );
+                        if (widget.locationRef!.attendees
+                            .contains(currentUserReference)) {
+                          context.pushNamed(
+                            'JoinedEvent',
+                            queryParameters: {
+                              'eventRef': serializeParam(
+                                widget.locationRef?.reference,
+                                ParamType.DocumentReference,
+                              ),
+                            }.withoutNulls,
+                          );
+                        } else {
+                          context.pushNamed(
+                            'EventScreen',
+                            queryParameters: {
+                              'eventRef': serializeParam(
+                                widget.locationRef?.reference,
+                                ParamType.DocumentReference,
+                              ),
+                            }.withoutNulls,
+                          );
+                        }
                       },
                       child: ListTile(
                         title: Text(
@@ -117,11 +132,13 @@ class _BottomLocationWidgetState extends State<BottomLocationWidget> {
                         subtitle: Text(
                           dateTimeFormat(
                               'MMMEd', widget.locationRef!.dateStart!),
-                          style:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Lato',
-                                    letterSpacing: 0.0,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .override(
+                                fontFamily: 'Lato',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                letterSpacing: 0.0,
+                              ),
                         ),
                         trailing: Icon(
                           Icons.arrow_forward_ios,
@@ -129,7 +146,7 @@ class _BottomLocationWidgetState extends State<BottomLocationWidget> {
                           size: 20.0,
                         ),
                         tileColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
+                            FlutterFlowTheme.of(context).primaryBackground,
                         dense: false,
                       ),
                     ),
@@ -221,53 +238,67 @@ class _BottomLocationWidgetState extends State<BottomLocationWidget> {
                       width: double.infinity,
                       height: 60.0,
                       decoration: const BoxDecoration(),
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            12.0, 8.0, 12.0, 8.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Card(
-                              clipBehavior: Clip.antiAliasWithSaveLayer,
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              elevation: 0.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(40.0),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Icon(
-                                  Icons.share_rounded,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 20.0,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'Share',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .override(
-                                            fontFamily: 'Lato',
-                                            letterSpacing: 0.0,
-                                          ),
+                      child: Builder(
+                        builder: (context) => Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              12.0, 8.0, 12.0, 8.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await Share.share(
+                                'Ello ',
+                                sharePositionOrigin:
+                                    getWidgetBoundingBox(context),
+                              );
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Card(
+                                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  elevation: 0.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(40.0),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Icon(
+                                      Icons.share_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 20.0,
                                     ),
-                                  ],
+                                  ),
                                 ),
-                              ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 0.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'Share',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge
+                                              .override(
+                                                fontFamily: 'Lato',
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
                       ),
                     ),
@@ -302,6 +333,9 @@ class _BottomLocationWidgetState extends State<BottomLocationWidget> {
                                             .labelLarge
                                             .override(
                                               fontFamily: 'Lato',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .info,
                                               letterSpacing: 0.0,
                                             ),
                                       ),

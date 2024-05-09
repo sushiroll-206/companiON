@@ -78,7 +78,7 @@ class _InterestWidgetState extends State<InterestWidget> {
               topRight: Radius.circular(45.0),
             ),
             border: Border.all(
-              color: const Color(0xFFBC9FD8),
+              color: FlutterFlowTheme.of(context).primary,
               width: 2.0,
             ),
           ),
@@ -89,7 +89,7 @@ class _InterestWidgetState extends State<InterestWidget> {
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Lato',
-                    color: const Color(0xFFBC9FD8),
+                    color: FlutterFlowTheme.of(context).primaryText,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.bold,
                   ),

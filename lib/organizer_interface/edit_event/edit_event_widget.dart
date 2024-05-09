@@ -92,7 +92,7 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                 buttonSize: 60.0,
                 icon: Icon(
                   Icons.arrow_back_rounded,
-                  color: FlutterFlowTheme.of(context).primaryText,
+                  color: FlutterFlowTheme.of(context).secondaryText,
                   size: 30.0,
                 ),
                 onPressed: () async {
@@ -103,7 +103,7 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                 'Edit Event',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Lato',
-                      color: FlutterFlowTheme.of(context).primaryText,
+                      color: FlutterFlowTheme.of(context).secondaryText,
                       fontSize: 22.0,
                       letterSpacing: 0.0,
                     ),
@@ -165,6 +165,8 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Lato',
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
                                           letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
@@ -256,7 +258,7 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                   icon: Icon(
                                     Icons.place,
                                     color: FlutterFlowTheme.of(context)
-                                        .primaryText,
+                                        .secondaryText,
                                     size: 16.0,
                                   ),
                                   buttonOptions: FFButtonOptions(
@@ -268,7 +270,7 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                         .override(
                                           fontFamily: 'Lato',
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryText,
+                                              .secondaryText,
                                           letterSpacing: 0.0,
                                         ),
                                     elevation: 2.0,
@@ -400,7 +402,7 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                               fontFamily: 'Lato',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                                      .secondaryText,
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,
@@ -497,7 +499,7 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                               fontFamily: 'Lato',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                                      .secondaryText,
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,
@@ -647,7 +649,7 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                               fontFamily: 'Lato',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                                      .secondaryText,
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,
@@ -744,7 +746,7 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                               fontFamily: 'Lato',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                                      .secondaryText,
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,
@@ -804,7 +806,7 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 0.0, 8.0),
                                           child: Text(
-                                            'Limit CompaniOns',
+                                            'Limit Attendees',
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyLarge
@@ -866,11 +868,13 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                     autofocus: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      labelText: 'Max Number of CompaniOns',
+                                      labelText: 'Max Number of Attendees',
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Lato',
+                                            color: FlutterFlowTheme.of(context)
+                                                .info,
                                             letterSpacing: 0.0,
                                           ),
                                       hintStyle: FlutterFlowTheme.of(context)
@@ -967,12 +971,16 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Lato',
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
                                           letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Lato',
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: OutlineInputBorder(
@@ -1116,7 +1124,7 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                         .override(
                                           fontFamily: 'Lato',
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryText,
+                                              .secondaryText,
                                           letterSpacing: 0.0,
                                         ),
                                     elevation: 3.0,
@@ -1180,8 +1188,8 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                       hintText: 'Type',
                                       icon: Icon(
                                         Icons.keyboard_arrow_down_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
                                         size: 24.0,
                                       ),
                                       fillColor: FlutterFlowTheme.of(context)
@@ -1220,6 +1228,10 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                                     .labelMedium
                                                     .override(
                                                       fontFamily: 'Lato',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .info,
                                                       letterSpacing: 0.0,
                                                     ),
                                             hintStyle:
@@ -1300,7 +1312,7 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                   children: [
                                     FFButtonWidget(
                                       onPressed: () async {
-                                        context.pushNamed('Home');
+                                        context.pushNamed('eventsList');
                                       },
                                       text: 'Cancel',
                                       options: FFButtonOptions(
@@ -1310,13 +1322,15 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                         iconPadding:
                                             const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Lato',
-                                              color: Colors.white,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,
@@ -1394,7 +1408,7 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                               fontFamily: 'Lato',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                                      .secondaryText,
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,

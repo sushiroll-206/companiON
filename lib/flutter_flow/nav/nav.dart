@@ -8,7 +8,6 @@ import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
 import '/main.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -120,8 +119,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   eventRef: params.getParam(
                     'eventRef',
                     ParamType.DocumentReference,
-                    false,
-                    ['Events'],
+                    isList: false,
+                    collectionNamePath: ['Events'],
                   ),
                 ),
               ),
@@ -136,8 +135,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   eventRef: params.getParam(
                     'eventRef',
                     ParamType.DocumentReference,
-                    false,
-                    ['Events'],
+                    isList: false,
+                    collectionNamePath: ['Events'],
                   ),
                 ),
               ),
@@ -171,12 +170,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'Home',
-              path: 'home',
+              name: 'eventsList',
+              path: 'eventsList',
               requireAuth: true,
               builder: (context, params) => const NavBarPage(
                 initialPage: '',
-                page: HomeWidget(),
+                page: EventsListWidget(),
               ),
             ),
             FFRoute(
@@ -206,15 +205,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'editEvent',
               path: 'editEvent',
               requireAuth: true,
-              builder: (context, params) => NavBarPage(
-                initialPage: '',
-                page: EditEventWidget(
-                  eventRef: params.getParam(
-                    'eventRef',
-                    ParamType.DocumentReference,
-                    false,
-                    ['Events'],
-                  ),
+              builder: (context, params) => EditEventWidget(
+                eventRef: params.getParam(
+                  'eventRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['Events'],
                 ),
               ),
             ),
@@ -227,24 +223,59 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   : const SettingsWidget(),
             ),
             FFRoute(
-              name: 'Companions',
-              path: 'companions',
+              name: 'Friends',
+              path: 'friends',
               requireAuth: true,
               builder: (context, params) => const NavBarPage(
                 initialPage: '',
-                page: CompanionsWidget(),
+                page: FriendsWidget(),
               ),
             ),
             FFRoute(
               name: 'testing',
               path: 'testing',
               requireAuth: true,
-              builder: (context, params) => params.isEmpty
-                  ? const NavBarPage(initialPage: 'testing')
-                  : const NavBarPage(
-                      initialPage: 'testing',
-                      page: TestingWidget(),
-                    ),
+              builder: (context, params) => const NavBarPage(
+                initialPage: '',
+                page: TestingWidget(),
+              ),
+            ),
+            FFRoute(
+              name: 'deleteAccount',
+              path: 'deleteAccount',
+              requireAuth: true,
+              builder: (context, params) => const NavBarPage(
+                initialPage: '',
+                page: DeleteAccountWidget(),
+              ),
+            ),
+            FFRoute(
+              name: 'termsAndConditions',
+              path: 'termsAndConditions',
+              requireAuth: true,
+              builder: (context, params) => const TermsAndConditionsWidget(),
+            ),
+            FFRoute(
+              name: 'JoinedEventCopy',
+              path: 'joinedEventCopy',
+              requireAuth: true,
+              builder: (context, params) => NavBarPage(
+                initialPage: '',
+                page: JoinedEventCopyWidget(
+                  eventRef: params.getParam(
+                    'eventRef',
+                    ParamType.DocumentReference,
+                    isList: false,
+                    collectionNamePath: ['Events'],
+                  ),
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'privacyPolicy',
+              path: 'privacyPolicy',
+              requireAuth: true,
+              builder: (context, params) => const PrivacyPolicyWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -342,7 +373,7 @@ class FFParameters {
   // present is the special extra parameter reserved for the transition info.
   bool get isEmpty =>
       state.allParams.isEmpty ||
-      (state.extraMap.length == 1 &&
+      (state.allParams.length == 1 &&
           state.extraMap.containsKey(kTransitionInfoKey));
   bool isAsyncParam(MapEntry<String, dynamic> param) =>
       asyncParams.containsKey(param.key) && param.value is String;
@@ -363,10 +394,10 @@ class FFParameters {
 
   dynamic getParam<T>(
     String paramName,
-    ParamType type, [
+    ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
-  ]) {
+  }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
     }
@@ -431,15 +462,11 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
-                    ),
+              ? Container(
+                  color: const Color(0xFF625FD4),
+                  child: Image.asset(
+                    'assets/images/eventful-high-resolution-logo_(1).png',
+                    fit: BoxFit.contain,
                   ),
                 )
               : page;

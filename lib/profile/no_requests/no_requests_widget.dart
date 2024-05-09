@@ -39,11 +39,11 @@ class _NoRequestsWidgetState extends State<NoRequestsWidget> {
       mainAxisSize: MainAxisSize.max,
       children: [
         Text(
-          'You don\'t have any Companion requests',
+          'You don\'t have any Friend requests',
           textAlign: TextAlign.center,
           style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Outfit',
-                color: const Color(0xFFBC9FD8),
+                color: FlutterFlowTheme.of(context).primaryText,
                 fontSize: 24.0,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.w500,

@@ -117,6 +117,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     .labelLarge
                                     .override(
                                       fontFamily: 'Lato',
+                                      color: FlutterFlowTheme.of(context).info,
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -135,6 +136,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       .labelLarge
                                       .override(
                                         fontFamily: 'Lato',
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
                                       ),
                                   errorStyle: FlutterFlowTheme.of(context)
@@ -199,6 +202,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     .headlineMedium
                                     .override(
                                       fontFamily: 'Lato',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
                                       letterSpacing: 0.0,
                                       lineHeight: 1.5,
                                     ),
@@ -224,6 +229,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       .labelLarge
                                       .override(
                                         fontFamily: 'Lato',
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
                                       ),
                                   errorStyle: FlutterFlowTheme.of(context)
@@ -379,13 +386,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                         iconPadding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleMedium.override(
-                                  fontFamily: 'Lato',
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  letterSpacing: 0.0,
-                                ),
+                        textStyle: FlutterFlowTheme.of(context)
+                            .titleMedium
+                            .override(
+                              fontFamily: 'Lato',
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              letterSpacing: 0.0,
+                            ),
                         elevation: 4.0,
                         borderSide: const BorderSide(
                           color: Colors.transparent,

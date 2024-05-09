@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'companions_widget.dart' show CompanionsWidget;
+import 'friends_widget.dart' show FriendsWidget;
 import 'package:flutter/material.dart';
 
-class CompanionsModel extends FlutterFlowModel<CompanionsWidget> {
+class FriendsModel extends FlutterFlowModel<FriendsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

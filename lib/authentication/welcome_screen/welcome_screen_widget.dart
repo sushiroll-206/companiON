@@ -241,7 +241,7 @@ class _WelcomeScreenWidgetState extends State<WelcomeScreenWidget>
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                    height: 600.0,
+                    height: 100.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
@@ -413,7 +413,7 @@ class _WelcomeScreenWidgetState extends State<WelcomeScreenWidget>
                       children: [
                         SizedBox(
                           width: double.infinity,
-                          height: 230.0,
+                          height: MediaQuery.sizeOf(context).height * 0.3,
                           child: Stack(
                             children: [
                               Padding(
@@ -433,7 +433,7 @@ class _WelcomeScreenWidgetState extends State<WelcomeScreenWidget>
                                             MainAxisAlignment.center,
                                         children: [
                                           Text(
-                                            'Connect With Your Campus',
+                                            'Welcome to Eventful',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
@@ -449,13 +449,17 @@ class _WelcomeScreenWidgetState extends State<WelcomeScreenWidget>
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 16.0, 0.0, 0.0),
                                             child: Text(
-                                              'Welcome to CompaniON',
+                                              'Make Your Life More Eventful',
                                               textAlign: TextAlign.center,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelLarge
                                                       .override(
                                                         fontFamily: 'Lato',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ).animateOnPageLoad(animationsMap[
@@ -473,7 +477,7 @@ class _WelcomeScreenWidgetState extends State<WelcomeScreenWidget>
                                             MainAxisAlignment.center,
                                         children: [
                                           Text(
-                                            'Awesome Recipes',
+                                            'Explore around UW',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
@@ -489,13 +493,17 @@ class _WelcomeScreenWidgetState extends State<WelcomeScreenWidget>
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 16.0, 0.0, 0.0),
                                             child: Text(
-                                              'I have some great food options here!! Yum yum!!',
+                                              'Find interesting events around campus',
                                               textAlign: TextAlign.center,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelLarge
                                                       .override(
                                                         fontFamily: 'Lato',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ).animateOnPageLoad(animationsMap[
@@ -513,7 +521,7 @@ class _WelcomeScreenWidgetState extends State<WelcomeScreenWidget>
                                             MainAxisAlignment.center,
                                         children: [
                                           Text(
-                                            'Personalized recipe discovery',
+                                            'Meet new people',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
@@ -529,13 +537,17 @@ class _WelcomeScreenWidgetState extends State<WelcomeScreenWidget>
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 16.0, 0.0, 0.0),
                                             child: Text(
-                                              'I have some great food options here!! Yum yum!!',
+                                              'Attend events and create new friends',
                                               textAlign: TextAlign.center,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelLarge
                                                       .override(
                                                         fontFamily: 'Lato',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ).animateOnPageLoad(animationsMap[
@@ -607,7 +619,7 @@ class _WelcomeScreenWidgetState extends State<WelcomeScreenWidget>
                                   .override(
                                     fontFamily: 'Lato',
                                     color: FlutterFlowTheme.of(context)
-                                        .primaryText,
+                                        .secondaryText,
                                     letterSpacing: 0.0,
                                   ),
                               elevation: 4.0,

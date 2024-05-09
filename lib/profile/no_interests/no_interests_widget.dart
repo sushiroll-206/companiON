@@ -39,11 +39,11 @@ class _NoInterestsWidgetState extends State<NoInterestsWidget> {
       mainAxisSize: MainAxisSize.max,
       children: [
         Text(
-          'You haven\'t selected any personal interes',
+          'You haven\'t selected any personal interests',
           textAlign: TextAlign.center,
           style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Outfit',
-                color: const Color(0xFFBC9FD8),
+                color: FlutterFlowTheme.of(context).primaryText,
                 fontSize: 24.0,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.w500,
@@ -56,7 +56,7 @@ class _NoInterestsWidgetState extends State<NoInterestsWidget> {
             textAlign: TextAlign.center,
             style: FlutterFlowTheme.of(context).labelMedium.override(
                   fontFamily: 'Plus Jakarta Sans',
-                  color: const Color(0xFF606A85),
+                  color: FlutterFlowTheme.of(context).info,
                   fontSize: 14.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w500,

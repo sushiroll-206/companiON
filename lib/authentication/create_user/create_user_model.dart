@@ -3,6 +3,11 @@ import 'create_user_widget.dart' show CreateUserWidget;
 import 'package:flutter/material.dart';
 
 class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
+  ///  Local state fields for this page.
+
+  String initialImage =
+      'https://upload.wikimedia.org/wikipedia/commons/9/96/Wombat-Narawntapu.jpg';
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

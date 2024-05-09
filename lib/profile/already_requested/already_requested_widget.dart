@@ -57,11 +57,11 @@ class _AlreadyRequestedWidgetState extends State<AlreadyRequestedWidget> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'You already have a pending Companion request for this user',
+                'You already have a pending Friend request for this user',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Lato',
-                      color: const Color(0xFFBC9FD8),
+                      color: FlutterFlowTheme.of(context).primaryText,
                       fontSize: 26.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
