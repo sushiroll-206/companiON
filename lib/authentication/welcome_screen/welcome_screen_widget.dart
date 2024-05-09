@@ -288,7 +288,7 @@ class _WelcomeScreenWidgetState extends State<WelcomeScreenWidget>
                                   topRight: Radius.circular(16.0),
                                 ),
                                 child: Image.network(
-                                  'https://picsum.photos/seed/32/600',
+                                  'https://www.joelrogers.com/img-get/I0000EFXDumqTDoE/s/750/750/Seattle-3616.jpg',
                                   width: 100.0,
                                   height: 0.0,
                                   fit: BoxFit.cover,
