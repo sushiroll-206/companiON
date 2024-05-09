@@ -27,3 +27,9 @@ export '/profile/friends/friends_widget.dart' show FriendsWidget;
 export '/pages/testing/testing_widget.dart' show TestingWidget;
 export '/settings/delete_account/delete_account_widget.dart'
     show DeleteAccountWidget;
+export '/settings/terms_and_conditions/terms_and_conditions_widget.dart'
+    show TermsAndConditionsWidget;
+export '/event_view/joined_event_copy/joined_event_copy_widget.dart'
+    show JoinedEventCopyWidget;
+export '/settings/privacy_policy/privacy_policy_widget.dart'
+    show PrivacyPolicyWidget;

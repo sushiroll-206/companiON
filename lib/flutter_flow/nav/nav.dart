@@ -248,6 +248,34 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 initialPage: '',
                 page: DeleteAccountWidget(),
               ),
+            ),
+            FFRoute(
+              name: 'termsAndConditions',
+              path: 'termsAndConditions',
+              requireAuth: true,
+              builder: (context, params) => const TermsAndConditionsWidget(),
+            ),
+            FFRoute(
+              name: 'JoinedEventCopy',
+              path: 'joinedEventCopy',
+              requireAuth: true,
+              builder: (context, params) => NavBarPage(
+                initialPage: '',
+                page: JoinedEventCopyWidget(
+                  eventRef: params.getParam(
+                    'eventRef',
+                    ParamType.DocumentReference,
+                    isList: false,
+                    collectionNamePath: ['Events'],
+                  ),
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'privacyPolicy',
+              path: 'privacyPolicy',
+              requireAuth: true,
+              builder: (context, params) => const PrivacyPolicyWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

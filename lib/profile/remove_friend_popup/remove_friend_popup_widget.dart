@@ -105,6 +105,8 @@ class _RemoveFriendPopupWidgetState extends State<RemoveFriendPopupWidget> {
                         }),
                       ]);
                       Navigator.pop(context);
+                      await Future.delayed(const Duration(milliseconds: 1500));
+                      FFAppState().update(() {});
                     },
                     text: 'Yes',
                     options: FFButtonOptions(
@@ -144,7 +146,7 @@ class _RemoveFriendPopupWidgetState extends State<RemoveFriendPopupWidget> {
                           const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: const Color(0xFF9A9B9B),
+                      color: FlutterFlowTheme.of(context).info,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Lato',

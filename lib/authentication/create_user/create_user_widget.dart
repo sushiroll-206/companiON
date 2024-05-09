@@ -580,6 +580,8 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                                     _model.displayNameTextController.text,
                               ));
 
+                          await authManager.sendEmailVerification();
+
                           context.pushNamedAuth('Login', context.mounted);
                         },
                         text: 'Create Account',

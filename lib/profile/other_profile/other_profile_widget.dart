@@ -7,6 +7,7 @@ import '/profile/no_interests_other/no_interests_other_widget.dart';
 import '/profile/remove_friend_popup/remove_friend_popup_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'other_profile_model.dart';
 export 'other_profile_model.dart';
 
@@ -83,11 +84,12 @@ class _OtherProfileWidgetState extends State<OtherProfileWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed('eventsList');
+                                      context.safePop();
                                     },
-                                    child: const Icon(
+                                    child: Icon(
                                       Icons.arrow_back_rounded,
-                                      color: Color(0xFFBC9FD8),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       size: 30.0,
                                     ),
                                   ),
@@ -100,39 +102,48 @@ class _OtherProfileWidgetState extends State<OtherProfileWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        await showModalBottomSheet(
-                                          isScrollControlled: true,
-                                          backgroundColor: Colors.transparent,
-                                          context: context,
-                                          builder: (context) {
-                                            return GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
-                                                      .unfocus(),
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: SizedBox(
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
+                                        if ((currentUserDocument?.companions
+                                                    .toList() ??
+                                                [])
+                                            .contains(
+                                                widget.userss?.reference)) {
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            context: context,
+                                            builder: (context) {
+                                              return WebViewAware(
+                                                child: GestureDetector(
+                                                  onTap: () => _model
+                                                          .unfocusNode
+                                                          .canRequestFocus
+                                                      ? FocusScope.of(context)
+                                                          .requestFocus(_model
+                                                              .unfocusNode)
+                                                      : FocusScope.of(context)
+                                                          .unfocus(),
+                                                  child: Padding(
+                                                    padding:
+                                                        MediaQuery.viewInsetsOf(
+                                                            context),
+                                                    child: SizedBox(
+                                                      height: MediaQuery.sizeOf(
+                                                                  context)
                                                               .height *
                                                           0.25,
-                                                  child:
-                                                      RemoveFriendPopupWidget(
-                                                    userRef: widget
-                                                        .userss!.reference,
+                                                      child:
+                                                          RemoveFriendPopupWidget(
+                                                        userRef: widget
+                                                            .userss!.reference,
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            );
-                                          },
-                                        ).then((value) => safeSetState(() {}));
-
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+                                        }
                                         setState(() {});
                                       },
                                       child: const Icon(
@@ -532,148 +543,100 @@ class _OtherProfileWidgetState extends State<OtherProfileWidget> {
                                         Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            StreamBuilder<List<UsersRecord>>(
-                                              stream: queryUsersRecord(
-                                                singleRecord: true,
-                                              ),
-                                              builder: (context, snapshot) {
-                                                // Customize what your widget looks like when it's loading.
-                                                if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 50.0,
-                                                      height: 50.0,
-                                                      child:
-                                                          CircularProgressIndicator(
-                                                        valueColor:
-                                                            AlwaysStoppedAnimation<
-                                                                Color>(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  );
-                                                }
-                                                List<UsersRecord>
-                                                    wrapUsersRecordList =
-                                                    snapshot.data!;
-                                                if (wrapUsersRecordList
-                                                    .isEmpty) {
+                                            Builder(
+                                              builder: (context) {
+                                                final interests = widget
+                                                        .userss?.interests
+                                                        .toList() ??
+                                                    [];
+                                                if (interests.isEmpty) {
                                                   return const Center(
                                                     child:
                                                         NoInterestsOtherWidget(),
                                                   );
                                                 }
-                                                final wrapUsersRecord =
-                                                    wrapUsersRecordList
-                                                            .isNotEmpty
-                                                        ? wrapUsersRecordList
-                                                            .first
-                                                        : null;
-                                                return Builder(
-                                                  builder: (context) {
-                                                    final interests = widget
-                                                            .userss?.interests
-                                                            .toList() ??
-                                                        [];
-                                                    if (interests.isEmpty) {
-                                                      return const Center(
-                                                        child:
-                                                            NoInterestsOtherWidget(),
-                                                      );
-                                                    }
-                                                    return Wrap(
-                                                      spacing: 0.0,
-                                                      runSpacing: 0.0,
-                                                      alignment:
-                                                          WrapAlignment.center,
-                                                      crossAxisAlignment:
-                                                          WrapCrossAlignment
-                                                              .start,
-                                                      direction:
-                                                          Axis.horizontal,
-                                                      runAlignment:
-                                                          WrapAlignment.start,
-                                                      verticalDirection:
-                                                          VerticalDirection
-                                                              .down,
-                                                      clipBehavior: Clip.none,
-                                                      children: List.generate(
-                                                          interests.length,
-                                                          (interestsIndex) {
-                                                        final interestsItem =
-                                                            interests[
-                                                                interestsIndex];
-                                                        return Padding(
+                                                return Wrap(
+                                                  spacing: 0.0,
+                                                  runSpacing: 0.0,
+                                                  alignment:
+                                                      WrapAlignment.center,
+                                                  crossAxisAlignment:
+                                                      WrapCrossAlignment.start,
+                                                  direction: Axis.horizontal,
+                                                  runAlignment:
+                                                      WrapAlignment.start,
+                                                  verticalDirection:
+                                                      VerticalDirection.down,
+                                                  clipBehavior: Clip.none,
+                                                  children: List.generate(
+                                                      interests.length,
+                                                      (interestsIndex) {
+                                                    final interestsItem =
+                                                        interests[
+                                                            interestsIndex];
+                                                    return Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  8.0),
+                                                      child: Container(
+                                                        height: 50.0,
+                                                        constraints:
+                                                            const BoxConstraints(
+                                                          minWidth: 75.0,
+                                                        ),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          borderRadius:
+                                                              const BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    45.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    45.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    45.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    45.0),
+                                                          ),
+                                                        ),
+                                                        child: Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
-                                                                      0.0,
+                                                                      15.0,
                                                                       8.0,
-                                                                      8.0),
-                                                          child: Container(
-                                                            height: 50.0,
-                                                            constraints:
-                                                                const BoxConstraints(
-                                                              minWidth: 75.0,
-                                                            ),
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primary,
-                                                              borderRadius:
-                                                                  const BorderRadius
-                                                                      .only(
-                                                                bottomLeft: Radius
-                                                                    .circular(
-                                                                        45.0),
-                                                                bottomRight: Radius
-                                                                    .circular(
-                                                                        45.0),
-                                                                topLeft: Radius
-                                                                    .circular(
-                                                                        45.0),
-                                                                topRight: Radius
-                                                                    .circular(
-                                                                        45.0),
-                                                              ),
-                                                            ),
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          8.0,
-                                                                          15.0,
-                                                                          8.0,
-                                                                          0.0),
-                                                              child: Text(
-                                                                interestsItem
-                                                                    .id,
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Lato',
-                                                                      color: Colors
-                                                                          .white,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                              ),
-                                                            ),
+                                                                      0.0),
+                                                          child: Text(
+                                                            interestsItem.id,
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Lato',
+                                                                  color: Colors
+                                                                      .white,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
-                                                        );
-                                                      }),
+                                                        ),
+                                                      ),
                                                     );
-                                                  },
+                                                  }),
                                                 );
                                               },
                                             ),
@@ -789,18 +752,36 @@ class _OtherProfileWidgetState extends State<OtherProfileWidget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  context.pushNamed(
-                                                    'EventScreen',
-                                                    queryParameters: {
-                                                      'eventRef':
-                                                          serializeParam(
-                                                        listViewEventsRecord
-                                                            .reference,
-                                                        ParamType
-                                                            .DocumentReference,
-                                                      ),
-                                                    }.withoutNulls,
-                                                  );
+                                                  if (listViewEventsRecord
+                                                      .attendees
+                                                      .contains(
+                                                          currentUserReference)) {
+                                                    context.pushNamed(
+                                                      'JoinedEvent',
+                                                      queryParameters: {
+                                                        'eventRef':
+                                                            serializeParam(
+                                                          listViewEventsRecord
+                                                              .reference,
+                                                          ParamType
+                                                              .DocumentReference,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
+                                                  } else {
+                                                    context.pushNamed(
+                                                      'EventScreen',
+                                                      queryParameters: {
+                                                        'eventRef':
+                                                            serializeParam(
+                                                          listViewEventsRecord
+                                                              .reference,
+                                                          ParamType
+                                                              .DocumentReference,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
+                                                  }
                                                 },
                                                 child: Material(
                                                   color: Colors.transparent,
@@ -834,23 +815,27 @@ class _OtherProfileWidgetState extends State<OtherProfileWidget> {
                                                           CrossAxisAlignment
                                                               .start,
                                                       children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      15.0),
-                                                          child: Image.network(
-                                                            listViewEventsRecord
-                                                                .eventImage,
-                                                            width: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .width *
-                                                                1.0,
-                                                            height: 105.0,
-                                                            fit: BoxFit.cover,
+                                                        if (listViewEventsRecord
+                                                                    .eventImage !=
+                                                                '')
+                                                          ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        15.0),
+                                                            child:
+                                                                Image.network(
+                                                              listViewEventsRecord
+                                                                  .eventImage,
+                                                              width: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .width *
+                                                                  1.0,
+                                                              height: 105.0,
+                                                              fit: BoxFit.cover,
+                                                            ),
                                                           ),
-                                                        ),
                                                         Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional

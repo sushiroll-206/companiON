@@ -485,147 +485,97 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         AuthUserStreamWidget(
-                                          builder: (context) =>
-                                              StreamBuilder<List<UsersRecord>>(
-                                            stream: queryUsersRecord(
-                                              singleRecord: true,
-                                            ),
-                                            builder: (context, snapshot) {
-                                              // Customize what your widget looks like when it's loading.
-                                              if (!snapshot.hasData) {
-                                                return Center(
-                                                  child: SizedBox(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      valueColor:
-                                                          AlwaysStoppedAnimation<
-                                                              Color>(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primary,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                );
-                                              }
-                                              List<UsersRecord>
-                                                  wrapUsersRecordList =
-                                                  snapshot.data!;
-                                              if (wrapUsersRecordList.isEmpty) {
+                                          builder: (context) => Builder(
+                                            builder: (context) {
+                                              final interests =
+                                                  (currentUserDocument
+                                                              ?.interests
+                                                              .toList() ??
+                                                          [])
+                                                      .toList();
+                                              if (interests.isEmpty) {
                                                 return const Center(
                                                   child: NoInterestsWidget(),
                                                 );
                                               }
-                                              final wrapUsersRecord =
-                                                  wrapUsersRecordList.isNotEmpty
-                                                      ? wrapUsersRecordList
-                                                          .first
-                                                      : null;
-                                              return Builder(
-                                                builder: (context) {
-                                                  final interests =
-                                                      (currentUserDocument
-                                                                  ?.interests
-                                                                  .toList() ??
-                                                              [])
-                                                          .toList();
-                                                  if (interests.isEmpty) {
-                                                    return const Center(
-                                                      child:
-                                                          NoInterestsWidget(),
-                                                    );
-                                                  }
-                                                  return Wrap(
-                                                    spacing: 0.0,
-                                                    runSpacing: 0.0,
-                                                    alignment:
-                                                        WrapAlignment.center,
-                                                    crossAxisAlignment:
-                                                        WrapCrossAlignment
-                                                            .start,
-                                                    direction: Axis.horizontal,
-                                                    runAlignment:
-                                                        WrapAlignment.start,
-                                                    verticalDirection:
-                                                        VerticalDirection.down,
-                                                    clipBehavior: Clip.none,
-                                                    children: List.generate(
-                                                        interests.length,
-                                                        (interestsIndex) {
-                                                      final interestsItem =
-                                                          interests[
-                                                              interestsIndex];
-                                                      return Padding(
+                                              return Wrap(
+                                                spacing: 0.0,
+                                                runSpacing: 0.0,
+                                                alignment: WrapAlignment.center,
+                                                crossAxisAlignment:
+                                                    WrapCrossAlignment.start,
+                                                direction: Axis.horizontal,
+                                                runAlignment:
+                                                    WrapAlignment.start,
+                                                verticalDirection:
+                                                    VerticalDirection.down,
+                                                clipBehavior: Clip.none,
+                                                children: List.generate(
+                                                    interests.length,
+                                                    (interestsIndex) {
+                                                  final interestsItem =
+                                                      interests[interestsIndex];
+                                                  return Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 0.0,
+                                                                8.0, 8.0),
+                                                    child: Container(
+                                                      height: 50.0,
+                                                      constraints:
+                                                          const BoxConstraints(
+                                                        minWidth: 75.0,
+                                                      ),
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        borderRadius:
+                                                            const BorderRadius.only(
+                                                          bottomLeft:
+                                                              Radius.circular(
+                                                                  45.0),
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  45.0),
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  45.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  45.0),
+                                                        ),
+                                                      ),
+                                                      child: Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     8.0,
-                                                                    0.0,
+                                                                    15.0,
                                                                     8.0,
-                                                                    8.0),
-                                                        child: Container(
-                                                          height: 50.0,
-                                                          constraints:
-                                                              const BoxConstraints(
-                                                            minWidth: 75.0,
-                                                          ),
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            borderRadius:
-                                                                const BorderRadius
-                                                                    .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      45.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          45.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      45.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      45.0),
-                                                            ),
-                                                          ),
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        8.0,
-                                                                        15.0,
-                                                                        8.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              interestsItem.id,
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Lato',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryText,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                            ),
-                                                          ),
+                                                                    0.0),
+                                                        child: Text(
+                                                          interestsItem.id,
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Lato',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
-                                                      );
-                                                    }),
+                                                      ),
+                                                    ),
                                                   );
-                                                },
+                                                }),
                                               );
                                             },
                                           ),
